@@ -23,8 +23,9 @@ public class RegistrationTests {
     void successfulRegistrationTest() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        executeJavaScript(
+                "document.querySelectorAll('#fixedban, footer, #adplus-anchor').forEach(el => el.remove())"
+        );
 
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Egorov");
